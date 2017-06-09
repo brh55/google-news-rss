@@ -1,4 +1,4 @@
-# google-news-client [![Build Status](https://travis-ci.org/brh55/google-news-client.svg?branch=master)](https://travis-ci.org/brh55/google-news-client) [![Coverage Status](https://coveralls.io/repos/github/brh55/google-news-client/badge.svg?branch=master)](https://coveralls.io/github/brh55/google-news-client?branch=master)
+# google-news-client [![Build Status](https://travis-ci.org/brh55/google-news-rss.svg?branch=master)](https://travis-ci.org/brh55/google-news-rss) [![Coverage Status](https://coveralls.io/repos/github/brh55/google-news-rss/badge.svg?branch=master)](https://coveralls.io/github/brh55/google-news-rss?branch=master)
 
 > An API client to parse Google News to a JSON format
 
