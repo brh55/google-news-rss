@@ -1,7 +1,7 @@
 {
   "name": "google-news-rss",
-  "version": "0.0.0",
-  "description": "An API client to parse Google News to a JSON format",
+  "version": "0.1.0",
+  "description": "A node module that searches Google News RSS Feed and returns a usable JSON response",
   "license": "MIT",
   "repository": "brh55/google-news-rss",
   "author": {
@@ -19,7 +19,10 @@
     "index.js"
   ],
   "keywords": [
-    ""
+    "google news",
+    "google news API",
+    "google news RSS",
+    "api client"
   ],
   "dependencies": {
     "cheerio": "^1.0.0-rc.1",
