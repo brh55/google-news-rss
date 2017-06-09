@@ -58,10 +58,9 @@ googleNews
 **Type:** `class`<br>
 **Usage:** `new GoogleNewsRss()`
 
-### Instance Methods
-#### .search(terms)
-
-##### terms
+## Instance Methods
+### .search(terms)
+#### terms
 **Type:** `string`<br>
 
 Search terms to search for within Google news. `IE: ethereum,btc`
