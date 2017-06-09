@@ -1,0 +1,46 @@
+{
+  "name": "google-news-client",
+  "version": "0.0.0",
+  "description": "An API client to parse Google News to a JSON format",
+  "license": "MIT",
+  "repository": "brh55/google-news-client",
+  "author": {
+    "name": "brh55",
+    "email": "brandonhim@live.com",
+    "url": "github.com/brh55/google-news-client"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && nyc ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.1",
+    "lodash.forown": "^4.4.0",
+    "pify": "^3.0.0",
+    "popsicle": "^9.1.0",
+    "striptags": "^3.0.1",
+    "unescape": "^1.0.1",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "coveralls": "^2.11.12",
+    "nock": "^9.0.13",
+    "nyc": "^10.0.0",
+    "xo": "^0.17.0"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
+}
