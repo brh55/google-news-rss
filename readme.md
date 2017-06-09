@@ -1,4 +1,4 @@
-# google-news-rss [![Build Status](https://travis-ci.org/brh55/google-news-rss.svg?branch=master)](https://travis-ci.org/brh55/google-news-rss) [![Coverage Status](https://coveralls.io/repos/github/brh55/google-news-rss/badge.svg?branch=master)](https://coveralls.io/github/brh55/google-news-rss?branch=master)
+# google-news-rss [![Travis branch](https://img.shields.io/travis/brh55/google-news-rss/master.svg?style=flat-square)](https://travis-ci.org/brh55/google-news-rss) [![Coveralls branch](https://img.shields.io/coveralls/brh55/google-news-rss/master.svg?style=flat-square)](https://coveralls.io/github/brh55/google-news-rss)
 
 > 🗞 A node module that searches Google News RSS Feed and returns a usable JSON response
 
@@ -79,4 +79,4 @@ Search terms to search for within Google news. `IE: ethereum,btc`
 
 ## License
 
-MIT © [brh55](https://github.com/brh55/google-news-client)
+MIT © [Brandon Him](https://github.com/brh55/google-news-client)
