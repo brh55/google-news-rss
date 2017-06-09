@@ -27,7 +27,7 @@ test('Searches the news and returns formatted articles', async t => {
 		pubDate: 'Fri, 09 Jun 2017 12:14:32 GMT',
 		description: 'Rodent feces, bugs found during Muskegon-area April food inspections',
 		publisher: 'MLive.com',
-		imgSrc: '//t2.gstatic.com/images?q=tbn:ANd9GcRzm0aUDI6tl9pyN4yN5hRxvNxMl7bnLwqVDdNcCO7mEzOjqtFcHkkiW1r_O7EqNnxFTca77i0D'
+		thumbnailUrl: '//t2.gstatic.com/images?q=tbn:ANd9GcRzm0aUDI6tl9pyN4yN5hRxvNxMl7bnLwqVDdNcCO7mEzOjqtFcHkkiW1r_O7EqNnxFTca77i0D'
 	};
 
 	const articles = await googleNews.search('food');

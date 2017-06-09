@@ -26,14 +26,14 @@ const flattenArticles = article => {
 const formatArticle = article => {
 	const description = decode(article.description);
 	const $ = cheerio.load(description);
-	const imgSrc = $('img', 'tr').attr('src');
+	const thumbnailUrl = $('img', 'tr').attr('src');
 	const htmlDescription = $('.lh').children().html();
 	const publisher = $('font', '.lh font').html();
 	const formattedDescription = striptags(htmlDescription);
 	// Add publisher and re-formatted description
 	const formatArticle = Object.assign(article, {description: formattedDescription}, {publisher});
 	// omit imgSrc if empty
-	return imgSrc ? Object.assign(formatArticle, {imgSrc}) : formatArticle;
+	return thumbnailUrl ? Object.assign(formatArticle, {thumbnailUrl}) : formatArticle;
 };
 
 class googleNewsClient {
