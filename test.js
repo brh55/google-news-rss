@@ -5,8 +5,13 @@ import GoogleNewsClient from '.';
 
 nock('https://news.google.com/news')
 	.get('/section')
-	.query({q: 'food', output: 'rss'})
+	.query({q: 'food', output: 'rss', num: 10})
 	.reply(200, rssMock);
+
+nock('https://news.google.com/news')
+		.get('/section')
+		.query({q: 'food', output: 'rss', num: 30})
+		.reply(200, rssMock);
 
 const googleNews = new GoogleNewsClient();
 
@@ -33,5 +38,12 @@ test('Searches the news and returns formatted articles', async t => {
 	const articles = await googleNews.search('food');
 	t.deepEqual(articles[0], expectedArticle1);
 	t.deepEqual(articles[9], expectedArticle2);
+	t.is(articles.length, 10);
+});
+
+test('Specify num results in correct request', async t => {
+	t.plan(1);
+
+	const articles = await googleNews.search('food', 30);
 	t.is(articles.length, 10);
 });

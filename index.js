@@ -50,16 +50,19 @@ class googleNewsClient {
 		};
 	}
 
-	search(terms) {
+	search(terms, num = 10) {
 		assert(typeof terms === 'string', true, 'expected terms to be string');
+		assert(typeof num === 'number', true, 'expected num to be number');
 
 		return this._request({
-			q: terms
+			q: terms,
+			num
 		});
 	}
 
 	_request(query) {
 		const options = this._buildOptions(query);
+
 		return popsicle.request(options)
 			.then(resp => resp.body)
 			.then(body => parseString(body, {trim: true}))
