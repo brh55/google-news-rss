@@ -50,13 +50,15 @@ class googleNewsClient {
 		};
 	}
 
-	search(terms, num = 10) {
+	search(terms, num = 10, language = 'en') {
 		assert(typeof terms === 'string', true, 'expected terms to be string');
 		assert(typeof num === 'number', true, 'expected num to be number');
+		assert(typeof language === 'string', true, 'expercted language to be string')
 
 		return this._request({
 			q: terms,
-			num
+			num, 
+			hl: language
 		});
 	}
 
