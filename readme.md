@@ -77,8 +77,7 @@ Number of results to be returned [1...30].
 **Type:** `string`<br>
 **Default:** `en`
 
-Language of the results within Google News. `IE: pt-BR`
-
+[Language](https://sites.google.com/site/tomihasa/google-language-codes#interfacelanguage) of the results within Google News. `IE: pt-BR`
 
 **Returns:** `Promise` that resolves 10 formatted articles
 
