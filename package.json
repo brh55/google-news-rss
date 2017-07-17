@@ -1,6 +1,6 @@
 {
   "name": "google-news-rss",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A node module that searches Google News RSS Feed and returns a usable JSON response",
   "license": "MIT",
   "repository": "brh55/google-news-rss",
