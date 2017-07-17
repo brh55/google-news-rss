@@ -59,7 +59,7 @@ googleNews
 **Usage:** `new GoogleNewsRss()`
 
 ## Instance Methods
-### .search(terms[, num])
+### .search(terms[, num, language])
 **Returns:** `Promise` that resolves `n` formatted articles
 
 #### terms
@@ -72,6 +72,13 @@ Search terms to search for within Google news. `IE: ethereum,btc`
 **Default:** 10
 
 Number of results to be returned [1...30].
+
+#### language
+**Type:** `string`<br>
+**Default:** `en`
+
+Language of the results within Google News. `IE: pt-BR`
+
 
 **Returns:** `Promise` that resolves 10 formatted articles
 
