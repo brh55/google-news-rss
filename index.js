@@ -1,11 +1,16 @@
 const assert = require('assert');
 const popsicle = require('popsicle');
-const decode = require('unescape');
+const Entities = require('html-entities').AllHtmlEntities;
 const pify = require('pify');
 const cheerio = require('cheerio');
 const striptags = require('striptags');
 const forOwn = require('lodash.forown');
+const qs = require('query-string');
+
 let parseString = require('xml2js').parseString;
+
+const entities = new Entities();
+const decode = entities.decode;
 
 parseString = pify(parseString);
 
@@ -24,14 +29,29 @@ const flattenArticles = article => {
 };
 
 const formatArticle = article => {
-	const description = decode(article.description);
+	const description = article.description;
 	const $ = cheerio.load(description);
+
+	// Remove the appended "- Publisher"
+	const title = article.title.replace(/\s*-.+/img, '');
+	// Remove the prefix Google URL
+	const shortLink = qs.parse(article.link).url;
 	const thumbnailUrl = $('img', 'tr').attr('src');
-	const htmlDescription = $('.lh').children().html();
 	const publisher = $('font', '.lh font').html();
-	const formattedDescription = striptags(htmlDescription);
-	// Add publisher and re-formatted description
-	const formatArticle = Object.assign(article, {description: formattedDescription}, {publisher});
+
+	// Remove excess information in description
+	$('font b').remove();
+	const htmlDescription = $.html();
+	const cleanDescription = decode(striptags(htmlDescription));
+
+	// Add publisher, re-formatted description, and url
+	const formatArticle = Object.assign(article, {
+		description: cleanDescription,
+		publisher,
+		title,
+		shortLink
+	});
+
 	// omit imgSrc if empty
 	return thumbnailUrl ? Object.assign(formatArticle, {thumbnailUrl}) : formatArticle;
 };
