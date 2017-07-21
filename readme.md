@@ -11,7 +11,7 @@ This is an unofficial, super easy to use node module / API client that allows a 
 
 ```
 {
-   title: "Are there really antioxidants in that juice? How to protect against food fraud. - Washington Post",
+   title: "Are there really antioxidants in that juice? How to protect against food fraud.",
    description: "Regrettably, they are examples of food fraud that are perpetrated on unsuspecting Americans. The global food industry loses $10 billion to $15 billion per year through food substitutions, dilutions and fake labels, according to the Grocery ...",
    pubDate: "Wed, 08 Jun 2017 07:01:30 GMT",
    thumbnailUrl: "//t1.gstatic.com/images?q=tbn:ANd9GcS7OWziKD2Lc3zReERlqVcffAcgIuzzq723AR4zF807dKuqhzMY6EUEpQyzwGzHXpE05gGtFHNC",
