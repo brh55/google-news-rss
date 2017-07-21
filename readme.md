@@ -42,10 +42,11 @@ googleNews
 //
 // [
 //   {
-//      title: 'Why don\'t unicorns exist? You asked Google – here\'s the answer ... - The Guardian',
+//      title: 'Why don\'t unicorns exist? You asked Google – here\'s the answer ...',
 //      link: 'http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNGNR4Qg8LGbjszT1yt2s2lMXvvufQ&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779522121279&ei=VQU7WYjiFoLEhQHIs4HQCQ&url=https://www.theguardian.com/commentisfree/2017/jun/07/why-dont-unicorns-exist-google',
+//		shortLink: 'https://www.theguardian.com/commentisfree/2017/jun/07/why-dont-unicorns-exist-google',
 //      pubDate: 'Wed, 07 Jun 2017 07:01:30 GMT',
-//      description: 'Why don&apos;t unicorns exist? You asked Google &#x2013; here&apos;s the answer ...',
+//      description: 'Imagine for a second that you’re God. You’ve created the universe in six days (seven under EU working time directives). You’ve created millions of creatures of unimaginable grace, oddness and beauty',
 //      publisher: 'The Guardian',
 //      imgSrc: '//t2.gstatic.com/images?q=tbn:ANd9GcRa2NGl3_alXByd3kpnDDImMJFGeskk4Mf_AWZc-ohe_O8iEtmBs7hMxieldT_--jQWuDr4gQc'
 //    }
