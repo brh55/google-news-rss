@@ -35,7 +35,7 @@ const formatArticle = article => {
 	// Remove the appended "- Publisher"
 	const title = article.title.replace(/\s*-.+/img, '');
 	// Remove the prefix Google URL
-	const link = qs.parse(article.link).url;
+	const shortLink = qs.parse(article.link).url;
 	const thumbnailUrl = $('img', 'tr').attr('src');
 	const publisher = $('font', '.lh font').html();
 
@@ -49,7 +49,7 @@ const formatArticle = article => {
 		description: cleanDescription,
 		publisher,
 		title,
-		link
+		shortLink
 	});
 
 	// omit imgSrc if empty
