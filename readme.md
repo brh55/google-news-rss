@@ -15,7 +15,8 @@ This is an unofficial, super easy to use node module / API client that allows a 
    description: "Regrettably, they are examples of food fraud that are perpetrated on unsuspecting Americans. The global food industry loses $10 billion to $15 billion per year through food substitutions, dilutions and fake labels, according to the Grocery ...",
    pubDate: "Wed, 08 Jun 2017 07:01:30 GMT",
    thumbnailUrl: "//t1.gstatic.com/images?q=tbn:ANd9GcS7OWziKD2Lc3zReERlqVcffAcgIuzzq723AR4zF807dKuqhzMY6EUEpQyzwGzHXpE05gGtFHNC",
-   publisher: "Washington Post"
+   publisher: "Washington Post",
+   link: "washingtonpost.com/article/link"
 }
 ```
 
@@ -45,7 +46,7 @@ googleNews
 //      pubDate: 'Wed, 07 Jun 2017 07:01:30 GMT',
 //      description: 'Why don&apos;t unicorns exist? You asked Google &#x2013; here&apos;s the answer ...',
 //      publisher: 'The Guardian',
-//      imgSrc: '//t2.gstatic.com/images?q=tbn:ANd9GcRa2NGl3_alXByd3kpnDDImMJFGeskk4Mf_AWZc-ohe_O8iEtmBs7hMxieldT_--jQWuDr4gQc'    
+//      imgSrc: '//t2.gstatic.com/images?q=tbn:ANd9GcRa2NGl3_alXByd3kpnDDImMJFGeskk4Mf_AWZc-ohe_O8iEtmBs7hMxieldT_--jQWuDr4gQc'
 //    }
 //  ... 9 more articles
 // ]

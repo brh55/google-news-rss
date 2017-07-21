@@ -26,11 +26,12 @@
   ],
   "dependencies": {
     "cheerio": "^1.0.0-rc.1",
+    "html-entities": "^1.2.1",
     "lodash.forown": "^4.4.0",
     "pify": "^3.0.0",
     "popsicle": "^9.1.0",
+    "query-string": "^4.3.4",
     "striptags": "^3.0.1",
-    "unescape": "^1.0.1",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
