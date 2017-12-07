@@ -5,7 +5,6 @@ const pify = require('pify');
 const cheerio = require('cheerio');
 const striptags = require('striptags');
 const forOwn = require('lodash.forown');
-const qs = require('query-string');
 
 let parseString = require('xml2js').parseString;
 
@@ -56,7 +55,6 @@ const formatArticle = article => {
 	// Remove the appended "- Publisher"
 	const title = article.title.replace(/\s*-.+/img, '');
 	// Remove the prefix Google URL
-	const shortLink = qs.parse(article.link).url;
 	const thumbnailUrl = $('img', 'tr').attr('src');
 	const publisher = $('font', '.lh font').html();
 
@@ -64,8 +62,7 @@ const formatArticle = article => {
 	const formatArticle = Object.assign(article, {
 		description: cleanDescription,
 		publisher,
-		title,
-		shortLink
+		title
 	});
 
 	// omit imgSrc if empty
@@ -74,11 +71,11 @@ const formatArticle = article => {
 
 class googleNewsClient {
 	constructor() {
-		this.url = 'https://news.google.com/news/section';
+		this.url = 'https://news.google.com/news/rss';
 	}
 
 	_buildOptions(appendQuery) {
-		const query = Object.assign({}, {output: 'rss'}, appendQuery);
+		const query = Object.assign({}, appendQuery);
 
 		return {
 			url: this.url,
@@ -86,23 +83,31 @@ class googleNewsClient {
 		};
 	}
 
-	search(terms, num = 10, language = 'en') {
+	// Will probably let people pass in a object after terms
+	search(terms, num = 10, language = 'en', extraParams = {}) {
 		assert(typeof terms === 'string', true, 'expected terms to be string');
 		assert(typeof num === 'number', true, 'expected num to be number');
 		assert(typeof language === 'string', true, 'expected language to be string');
 
-		return this._request({
-			q: terms,
+		let params = {
+			gl: 'US',
 			num,
+			q: terms,
 			hl: language
-		});
+		};
+
+		params = Object.assign({}, params, extraParams);
+		console.log(params);
+		return this._request(params);
 	}
 
 	_request(query) {
 		const options = this._buildOptions(query);
 
+
 		return popsicle.request(options)
 			.then(resp => resp.body)
+			.then(r => console.log(r))
 			.then(body => parseString(body, {trim: true}))
 			.then(parseXml => parseXml.rss.channel[0].item)
 			.then(articles => articles.map(flattenArticles))

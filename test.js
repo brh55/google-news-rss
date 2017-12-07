@@ -3,15 +3,17 @@ import test from 'ava';
 import rssMock from './mock/rss';
 import GoogleNewsClient from '.';
 
-nock('https://news.google.com/news')
-	.get('/section')
-	.query({q: 'food', output: 'rss', num: 10, hl: 'en'})
+const link = 'https://news.google.com/news';
+
+nock(link)
+	.get('/rss')
+	.query({q: 'food', num: 10, hl: 'en', gl: 'US'})
 	.reply(200, rssMock);
 
-nock('https://news.google.com/news')
-		.get('/section')
-		.query({q: 'food', output: 'rss', num: 30, hl: 'en'})
-		.reply(200, rssMock);
+nock(link)
+	.get('/rss')
+	.query({q: 'food', gl: 'US', num: 30, hl: 'en'})
+	.reply(200, rssMock);
 
 const googleNews = new GoogleNewsClient();
 
