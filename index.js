@@ -83,6 +83,16 @@ class googleNewsClient {
 		};
 	}
 
+	_formulateUrl(term) {
+		if (!term) {
+			return this.url;
+		}
+
+		const urlTerm = encodeURIComponent(term);
+
+		return `${this.url}/search/section/${urlTerm}/${urlTerm}`;
+	}
+
 	// Will probably let people pass in a object after terms
 	search(terms, num = 10, language = 'en', extraParams = {}) {
 		assert(typeof terms === 'string', true, 'expected terms to be string');
@@ -92,18 +102,20 @@ class googleNewsClient {
 		let params = {
 			gl: 'US',
 			num,
-			q: terms,
 			hl: language
 		};
 
-		params = Object.assign({}, params, extraParams);
-		console.log(params);
+		const url = {
+			url: this._formulateUrl(terms)
+		};
+
+		params = Object.assign({}, params, extraParams, url);
 		return this._request(params);
 	}
 
 	_request(query) {
+		console.log(query);
 		const options = this._buildOptions(query);
-
 
 		return popsicle.request(options)
 			.then(resp => resp.body)

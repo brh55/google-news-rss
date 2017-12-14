@@ -6,13 +6,13 @@ import GoogleNewsClient from '.';
 const link = 'https://news.google.com/news';
 
 nock(link)
-	.get('/rss')
-	.query({q: 'food', num: 10, hl: 'en', gl: 'US'})
+	.get('/rss/search/section/food/food')
+	.query({num: 10, hl: 'en', gl: 'US'})
 	.reply(200, rssMock);
 
 nock(link)
-	.get('/rss')
-	.query({q: 'food', gl: 'US', num: 30, hl: 'en'})
+	.get('/rss/search/section/food/food')
+	.query({gl: 'US', num: 30, hl: 'en'})
 	.reply(200, rssMock);
 
 const googleNews = new GoogleNewsClient();
