@@ -74,11 +74,11 @@ class googleNewsClient {
 		this.url = 'https://news.google.com/news/rss';
 	}
 
-	_buildOptions(appendQuery) {
+	_buildOptions(term, appendQuery) {
 		const query = Object.assign({}, appendQuery);
 
 		return {
-			url: this.url,
+			url: this._formulateUrl(term),
 			query
 		};
 	}
@@ -89,7 +89,6 @@ class googleNewsClient {
 		}
 
 		const urlTerm = encodeURIComponent(term);
-
 		return `${this.url}/search/section/${urlTerm}/${urlTerm}`;
 	}
 
@@ -105,21 +104,14 @@ class googleNewsClient {
 			hl: language
 		};
 
-		const url = {
-			url: this._formulateUrl(terms)
-		};
-
-		params = Object.assign({}, params, extraParams, url);
-		return this._request(params);
+		params = Object.assign({}, params, extraParams);
+		const options = this._buildOptions(terms, params);
+		return this._request(options);
 	}
 
-	_request(query) {
-		console.log(query);
-		const options = this._buildOptions(query);
-
+	_request(options) {
 		return popsicle.request(options)
 			.then(resp => resp.body)
-			.then(r => console.log(r))
 			.then(body => parseString(body, {trim: true}))
 			.then(parseXml => parseXml.rss.channel[0].item)
 			.then(articles => articles.map(flattenArticles))
