@@ -16,8 +16,7 @@ This is an unofficial, super easy to use node module / API client that allows a 
    pubDate: "Wed, 08 Jun 2017 07:01:30 GMT",
    thumbnailUrl: "//t1.gstatic.com/images?q=tbn:ANd9GcS7OWziKD2Lc3zReERlqVcffAcgIuzzq723AR4zF807dKuqhzMY6EUEpQyzwGzHXpE05gGtFHNC",
    publisher: "Washington Post",
-   link: "http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNEeo82SxlrQZP5SzjugGtJHFt36_g&clid=c3a7d30bb8a4878e06b80cf16b898331&ei=rCJqWYjEINKMzgKc_YDgCQ&url=https://www.washingtonpost.com/lifestyle/wellness/are-there-really-antioxidants-in-that-juice-how-to-protect-against-food-fraud/2017/06/07/fec98462-4554-11e7-bcde-624ad94170ab_story.html",
-   shortLink: "https://www.washingtonpost.com/lifestyle/wellness/are-there-really-antioxidants-in-that-juice-how-to-protect-against-food-fraud/2017/06/07/fec98462-4554-11e7-bcde-624ad94170ab_story.html"
+   link: "http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNEeo82SxlrQZP5SzjugGtJHFt36_g&clid=c3a7d30bb8a4878e06b80cf16b898331&ei=rCJqWYjEINKMzgKc_YDgCQ&url=https://www.washingtonpost.com/lifestyle/wellness/are-there-really-antioxidants-in-that-juice-how-to-protect-against-food-fraud/2017/06/07/fec98462-4554-11e7-bcde-624ad94170ab_story.html"
 }
 ```
 
@@ -44,7 +43,6 @@ googleNews
 //   {
 //      title: 'Why don\'t unicorns exist? You asked Google – here\'s the answer ...',
 //      link: 'http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNGNR4Qg8LGbjszT1yt2s2lMXvvufQ&clid=c3a7d30bb8a4878e06b80cf16b898331&cid=52779522121279&ei=VQU7WYjiFoLEhQHIs4HQCQ&url=https://www.theguardian.com/commentisfree/2017/jun/07/why-dont-unicorns-exist-google',
-//		shortLink: 'https://www.theguardian.com/commentisfree/2017/jun/07/why-dont-unicorns-exist-google',
 //      pubDate: 'Wed, 07 Jun 2017 07:01:30 GMT',
 //      description: 'Imagine for a second that you’re God. You’ve created the universe in six days (seven under EU working time directives). You’ve created millions of creatures of unimaginable grace, oddness and beauty',
 //      publisher: 'The Guardian',
@@ -83,6 +81,11 @@ Number of results to be returned [1...30].
 [Language](https://sites.google.com/site/tomihasa/google-language-codes#interfacelanguage) of the results within Google News. `IE: pt-BR`
 
 **Returns:** `Promise` that resolves 10 formatted articles
+
+#### extraParams
+**Type:** `object`<br>
+
+Any additional query params that are appended to RSS url to refine the results. Please note, there aren't any officially documented parameters so your mileage may vary. Feel free to experiment with some of the params listed on this [blog post provided by i-tweak](http://i-tweak.blogspot.com/2013/10/google-news-search-parameters-missing.html).
 
 ## Article Properties
 | Properties   | Description                                    | Example                                                                                                                                                                                                                                                                             |
