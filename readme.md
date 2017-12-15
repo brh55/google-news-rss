@@ -60,7 +60,7 @@ googleNews
 **Usage:** `new GoogleNewsRss()`
 
 ## Instance Methods
-### .search(terms[, num, language])
+### .search(terms[, num, language, extraParams])
 **Returns:** `Promise` that resolves `n` formatted articles
 
 #### terms
