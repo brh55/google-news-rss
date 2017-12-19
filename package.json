@@ -1,7 +1,7 @@
 {
   "name": "google-news-rss",
-  "version": "0.3.0",
-  "description": "A node module that searches Google News RSS Feed and returns a usable JSON response",
+  "version": "0.4.0",
+  "description": "A node (with browser support) module that searches Google News RSS Feed and returns a usable JSON response",
   "license": "MIT",
   "repository": "brh55/google-news-rss",
   "author": {
@@ -33,7 +33,6 @@
     "lodash.forown": "^4.4.0",
     "node-fetch": "^1.7.3",
     "pify": "^3.0.0",
-    "popsicle": "^9.1.0",
     "query-string": "^4.3.4",
     "striptags": "^3.0.1",
     "xml2js": "^0.4.17"

@@ -1,9 +1,8 @@
 # google-news-rss [![Travis branch](https://img.shields.io/travis/brh55/google-news-rss/master.svg?style=flat-square)](https://travis-ci.org/brh55/google-news-rss) [![Coveralls branch](https://img.shields.io/coveralls/brh55/google-news-rss/master.svg?style=flat-square)](https://coveralls.io/github/brh55/google-news-rss)
 
-> 🗞 A node module that searches Google News RSS Feed and returns a usable JSON response
+> 🗞 A node module (with browser support) that searches Google News RSS Feed and returns a usable JSON response
 
-This is an unofficial, super easy to use node module / API client that allows a user to fetch a Google News RSS feed based on search terms and returns an easy to use JSON response.
-
+This is an unofficial, super easy to use node module / API client that allows a user to fetch a Google News RSS feed based on search terms and returns an easy to use JSON response. `google-news-rss` also supports in-browser requests.
 
 ![RSS Example](https://user-images.githubusercontent.com/6020066/26994437-4399c680-4d2d-11e7-824b-6082aee7c2c8.png)
 
