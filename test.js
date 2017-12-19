@@ -6,12 +6,12 @@ import GoogleNewsClient from '.';
 const link = 'https://news.google.com/news';
 
 nock(link)
-	.get('/rss/search/section/food/food')
+	.get('/rss/search/section/q/food/food')
 	.query({num: 10, hl: 'en', gl: 'US'})
 	.reply(200, rssMock);
 
 nock(link)
-	.get('/rss/search/section/food/food')
+	.get('/rss/search/section/q/food/food')
 	.query({gl: 'US', num: 30, hl: 'en'})
 	.reply(200, rssMock);
 

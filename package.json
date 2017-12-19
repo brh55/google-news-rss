@@ -1,51 +1,54 @@
 {
-	"name": "google-news-rss",
-	"version": "0.3.0",
-	"description": "A node module that searches Google News RSS Feed and returns a usable JSON response",
-	"license": "MIT",
-	"repository": "brh55/google-news-rss",
-	"author": {
-		"name": "brh55",
-		"email": "brandonhim@live.com",
-		"url": "github.com/brh55/google-news-rss"
-	},
-	"engines": {
-		"node": ">=6"
-	},
-	"scripts": {
-		"test": "xo && nyc ava"
-	},
-	"files": [
-		"index.js"
-	],
-	"keywords": [
-		"google news",
-		"google news API",
-		"google news RSS",
-		"api client",
-		"RSS"
-	],
-	"dependencies": {
-		"cheerio": "^1.0.0-rc.1",
-		"html-entities": "^1.2.1",
-		"lodash.forown": "^4.4.0",
-		"pify": "^3.0.0",
-		"popsicle": "^9.1.0",
-		"query-string": "^4.3.4",
-		"striptags": "^3.0.1",
-		"xml2js": "^0.4.17"
-	},
-	"devDependencies": {
-		"ava": "^0.17.0",
-		"coveralls": "^2.11.12",
-		"nock": "^9.0.13",
-		"nyc": "^10.0.0",
-		"xo": "^0.17.0"
-	},
-	"nyc": {
-		"reporter": [
-			"lcov",
-			"text"
-		]
-	}
+  "name": "google-news-rss",
+  "version": "0.3.0",
+  "description": "A node module that searches Google News RSS Feed and returns a usable JSON response",
+  "license": "MIT",
+  "repository": "brh55/google-news-rss",
+  "author": {
+    "name": "brh55",
+    "email": "brandonhim@live.com",
+    "url": "github.com/brh55/google-news-rss"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "xo && nyc ava"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "google news",
+    "google news API",
+    "google news RSS",
+    "api client",
+    "RSS"
+  ],
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.1",
+    "es6-promise": "^4.1.1",
+    "html-entities": "^1.2.1",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash.forown": "^4.4.0",
+    "node-fetch": "^1.7.3",
+    "pify": "^3.0.0",
+    "popsicle": "^9.1.0",
+    "query-string": "^4.3.4",
+    "striptags": "^3.0.1",
+    "xml2js": "^0.4.17"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "coveralls": "^2.11.12",
+    "nock": "^9.0.13",
+    "nyc": "^10.0.0",
+    "xo": "^0.17.0"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
 }

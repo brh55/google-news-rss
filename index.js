@@ -1,11 +1,15 @@
 const assert = require('assert');
-const popsicle = require('popsicle');
+const queryString = require('query-string');
 const Entities = require('html-entities').AllHtmlEntities;
 const pify = require('pify');
 const cheerio = require('cheerio');
 const striptags = require('striptags');
 const forOwn = require('lodash.forown');
+const es6Promise = require('es6-promise');
 
+es6Promise.polyfill();
+
+const isoFetch = require('isomorphic-fetch');
 let parseString = require('xml2js').parseString;
 
 const entities = new Entities();
@@ -89,7 +93,7 @@ class googleNewsClient {
 		}
 
 		const urlTerm = encodeURIComponent(term);
-		return `${this.url}/search/section/${urlTerm}/${urlTerm}`;
+		return `${this.url}/search/section/q/${urlTerm}/${urlTerm}`;
 	}
 
 	// Will probably let people pass in a object after terms
@@ -110,8 +114,20 @@ class googleNewsClient {
 	}
 
 	_request(options) {
-		return popsicle.request(options)
-			.then(resp => resp.body)
+		const qs = queryString.stringify(options.query);
+		const url = (qs) ? `${options.url}?${qs}` : options.url;
+		const params = {
+			method: 'GET'
+		};
+
+		return isoFetch(url, params)
+			.then(response => {
+				if (response.ok) {
+					return response.text();
+				}
+
+				throw new Error(`Fetch ${url} failed`);
+			})
 			.then(body => parseString(body, {trim: true}))
 			.then(parseXml => parseXml.rss.channel[0].item)
 			.then(articles => articles.map(flattenArticles))
