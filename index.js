@@ -31,42 +31,38 @@ const flattenArticles = article => {
 	return flattenObj;
 };
 
-const deriveDescription = rawDescription => {
+const deriveDescription = (rawDescription, publisher) => {
 	if (!rawDescription) {
 		return 'No description found';
 	}
 
-	const match = rawDescription.match(/size="-1">(?!<b>).+\.\.\./g);
+	let description = decode(striptags(rawDescription));
+	description = description.replace(/â€”/g, '');
+
+	const match = description.match(RegExp(publisher));
+
 	if (match) {
-		const description = match[0];
-		// decode -> striptags -> substr
-		const formatDescription = decode(striptags(description.substr(10, description.length)));
-		// Odd character that appears, will remove manually
-		const removedStaryChars = formatDescription.replace(/â€”/g, '');
-		return removedStaryChars;
+		const end = match.index;
+		description = description.substring(0, end);
 	}
 
-	// Shouldn't get passed here, if so that means there have been google updates
-	// Put will remove as much of noise as possible
-	return decode(striptags(rawDescription));
+	return description.trim();
 };
 
 const formatArticle = article => {
 	const description = article.description;
 	const $ = cheerio.load(description);
-	const cleanDescription = deriveDescription(description);
 
-	// Remove the appended "- Publisher"
-	const title = article.title.replace(/\s*-.+/img, '');
 	// Remove the prefix Google URL
 	const thumbnailUrl = $('img', 'tr').attr('src');
-	const publisher = $('font', '.lh font').html();
+	// TO-DO: Address the relevant section
+	const publisher = $('font[color=#6f6f6f]').text()
+	const cleanDescription = deriveDescription(description, publisher);
 
 	// Add publisher, re-formatted description, and url
 	const formatArticle = Object.assign(article, {
 		description: cleanDescription,
-		publisher,
-		title
+		publisher
 	});
 
 	// omit imgSrc if empty
