@@ -36,9 +36,8 @@ test('Searches the news and returns formatted articles', async t => {
 		category: 'food',
 		pubDate: 'Tue, 19 Dec 2017 14:02:06 GMT',
 		publisher: 'Christian Science Monitor',
-		description :'\'Feast for the Eyes\' is a delightful history of food in photography'
+		description: '\'Feast for the Eyes\' is a delightful history of food in photography'
 	};
-
 
 	const articles = await googleNews.search('food');
 

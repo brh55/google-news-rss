@@ -56,7 +56,7 @@ const formatArticle = article => {
 	// Remove the prefix Google URL
 	const thumbnailUrl = $('img', 'tr').attr('src');
 	// TO-DO: Address the relevant section
-	const publisher = $('font[color=#6f6f6f]').text()
+	const publisher = $('font[color=#6f6f6f]').text();
 	const cleanDescription = deriveDescription(description, publisher);
 
 	// Add publisher, re-formatted description, and url
