@@ -21,24 +21,26 @@ test('Searches the news and returns formatted articles', async t => {
 	t.plan(3);
 
 	const expectedArticle1 = {
-		title: 'Your pick: World\'s 50 best foods',
-		link: 'http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNEDNjfEObRdKmRlsbRO4BSuFFC2hg&clid=c3a7d30bb8a4878e06b80cf16b898331&ei=rCJqWYjEINKMzgKc_YDgCQ&url=http://www.cnn.com/travel/article/world-best-foods-readers-choice/index.html',
-		pubDate: 'Wed, 12 Jul 2017 12:04:47 GMT',
-		description: '(CNN)  What are the world\'s best foods? We thought we knew. Apparently we don\'t. Our list of the World\'s 50 best foods stimulated some impassioned debate about the conspicuous lack of French dishes and the merits of ketchup over mayonnaise. \"Ketchup ...', // eslint-disable-line no-useless-escape
-		publisher: 'CNN',
-		thumbnailUrl: '//t0.gstatic.com/images?q=tbn:ANd9GcQtGI39Y_w847WipM0d9UBrcxj41HrNLEL_lDfnl0sw-BqkdHEN1U2d-xNF4rXw3B4PTumy1y28'
+		title: 'Big Food\'s Deal Frenzy Is Just Getting Started',
+		link: 'https://www.bloomberg.com/news/articles/2017-12-19/boom-in-food-m-a-deals-is-just-getting-started-as-kraft-looms',
+		category: 'food',
+		pubDate: 'Tue, 19 Dec 2017 11:31:14 GMT',
+		description: 'Big Food\'s Deal Frenzy Is Just Getting Started',
+		publisher: 'Bloomberg',
+		thumbnailUrl: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRPP8v1KNk_X0D6oZPiSJSpSBbhR9IPCHqwGvmUOiryk32E7Ih_YoUjZlenfUjXhIuWXoMKH5kNuw'
 	};
 
 	const expectedArticle2 = {
-		title: 'Best Korean dishes: 40 foods we can\'t live without',
-		link: 'http://news.google.com/news/url?sa=t&fd=R&ct2=us&usg=AFQjCNEeo82SxlrQZP5SzjugGtJHFt36_g&clid=c3a7d30bb8a4878e06b80cf16b898331&ei=rCJqWYjEINKMzgKc_YDgCQ&url=http://www.cnn.com/travel/article/best-korean-dishes/index.html',
-		pubDate: 'Wed, 12 Jul 2017 15:54:41 GMT',
-		description: '(CNN)  The fact that there are over 100 different types of kimchi should tell you something about the pride Koreans have in their food. Korean cuisine has evolved over time because of cultural and changes, but it remains a major aspect of the ...',
-		publisher: 'CNN',
-		thumbnailUrl: '//t0.gstatic.com/images?q=tbn:ANd9GcQCDS0sTjw9VGQ8fJRIlNhCjhe871Vz7IIQ1VQncaK7NrSNpOy5WUKL5CYQxVJ4aUjpQ6VT7Qpp'
+		title: '\'Feast for the Eyes\' is a delightful history of food in photography',
+		link: 'https://www.csmonitor.com/Books/Book-Reviews/2017/1219/Feast-for-the-Eyes-is-a-delightful-history-of-food-in-photography',
+		category: 'food',
+		pubDate: 'Tue, 19 Dec 2017 14:02:06 GMT',
+		publisher: 'Christian Science Monitor',
+		description: '\'Feast for the Eyes\' is a delightful history of food in photography'
 	};
 
 	const articles = await googleNews.search('food');
+
 	t.deepEqual(articles[0], expectedArticle1);
 	t.deepEqual(articles[9], expectedArticle2);
 	t.is(articles.length, 10);
